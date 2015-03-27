@@ -11,17 +11,14 @@ class TestPrimes < Minitest::Test
   end
 
   def test_sixth_prime
-    skip
     assert_equal 13, Prime.nth(6)
   end
 
   def test_big_prime
-    skip
     assert_equal 104_743, Prime.nth(10_001)
   end
 
   def test_weird_case
-    skip
     assert_raises ArgumentError do
       Prime.nth(0)
     end

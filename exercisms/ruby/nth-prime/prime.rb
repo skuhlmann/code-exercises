@@ -1,15 +1,16 @@
+require 'pry'
+
 class Prime
 
   def self.nth(number)
+    fail ArgumentError if number <= 0
     primes = []
-    (2..100).to_a.inject(primes) do |result, element|
-      until result.index(result.last) == (number - 1)
-        result << element if is_prime?(element)
-        result
-      end
+    (2..105_743).to_a.inject(primes) do |result, element|
+      break if result.index(result.last) == (number - 1)
+      result << element if is_prime?(element)
       result
     end
-    primes.last
+    primes[number - 1]
   end
 
   def self.is_prime?(number)
